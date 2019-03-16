@@ -8,17 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("health")
 public class HealthController implements HealthIndicator {
 
-    @Autowired
-    private WelcomeService service;
-
     private int health = 0;
-
-    @RequestMapping("/welcome")
-    public String welcome() {
-        return service.retrieveWelcomeMessage();
-    }
 
     @RequestMapping("/changeHealth")
     public String changeHealth(){
