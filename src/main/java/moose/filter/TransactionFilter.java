@@ -8,8 +8,8 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-@Component
-@Order(2)
+//@Component
+//@Order(2)
 public class TransactionFilter implements Filter {
     @Override public void init(FilterConfig filterConfig) throws ServletException {
 
