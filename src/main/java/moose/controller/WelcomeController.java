@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -16,12 +17,12 @@ public class WelcomeController implements HealthIndicator {
 
     private int health = 0;
 
-    @RequestMapping("/welcomeMsg")
+    @RequestMapping(value = "/welcomeMsg", method = RequestMethod.GET)
     public String welcome() {
         return service.retrieveWelcomeMessage();
     }
 
-    @RequestMapping("/changeHealth")
+    @RequestMapping(value = "/changeHealth", method = RequestMethod.POST)
     public String changeHealth(){
         health = health == 0? 1:0;
         return String.valueOf(health);
