@@ -1,5 +1,6 @@
 package moose.config;
 
+import moose.Application;
 import moose.model.GFInfo;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -20,6 +21,7 @@ public class AppBean {
     @Bean
     @ConfigurationProperties(prefix = "moose")
     public AppCfg getCfg(){
-        return new AppCfg();
+        AppCfg cfg = new AppCfg();
+        return cfg;
     }
 }
