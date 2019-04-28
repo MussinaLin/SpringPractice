@@ -1,6 +1,8 @@
 package moose.controller;
 
+import moose.config.AppBean;
 import moose.config.AppCfg;
+import moose.model.GFInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,14 +14,18 @@ public class CfgController {
     @Autowired
     private AppCfg appCfg;
 
-    @RequestMapping(method = RequestMethod.GET, path = "/cfg")
-    public void getCfg(){
-        System.out.println(appCfg.getName());
-        System.out.println(appCfg.getAge());
+    @Autowired
+    private GFInfo gfInfo;
 
-        System.out.println(appCfg.getGf().getName());
-        System.out.println(appCfg.getGf().getAge());
-        System.out.println(appCfg.getGf().getTall());
+    @RequestMapping(method = RequestMethod.GET, path = "/cfg")
+    public AppCfg getAppCfg(){
+        return appCfg;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = "/appBean")
+    public GFInfo getAppBean(){
+        System.out.println(gfInfo.getName());
+        return gfInfo;
     }
 
 }
