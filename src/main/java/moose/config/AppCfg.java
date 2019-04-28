@@ -4,8 +4,6 @@ import moose.model.GFInfo;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-@Component
-@ConfigurationProperties(prefix = "moose")
 public class AppCfg {
 
     private String name;
